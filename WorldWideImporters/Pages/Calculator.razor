@@ -1,0 +1,63 @@
+﻿@page  "/calculator"
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    https://ankitsharmablogs.com/asp-net-core-getting-started-with-blazor/
+*@
+
+
+<h1>Calc</h1>
+<div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>First Number</p>
+        </div>
+        <div class="col-sm-4">
+            <input placeholder="Enter first number" bind="@num1" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Second Number</p>
+        </div>
+        <div class="col-sm-4">
+            <input placeholder="Enter second number" bind="@num2" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Final Result</p>
+        </div>
+        <div class="col-sm-4">
+            <input readonly bind="@finalResult" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Final Result</p>
+        </div>
+        <div class="col-sm-4">
+            <button onclick="AddNumbers" class="btn">Add (+)</button>
+        </div>
+    </div>
+</div>
+
+@functions {
+    //string num1 = "";
+    //string num2 = "";
+    [Parameter]
+    public string finalResult { get; set; } = "";
+
+    [Parameter]
+    public string num1 { get; set; } = "";
+
+    [Parameter]
+    public string num2 { get; set; } = "";
+
+    void AddNumbers()
+    {
+        finalResult = (Convert.ToDouble(num1) + Convert.ToDouble(num2)).ToString();
+    }
+}

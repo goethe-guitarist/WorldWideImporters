@@ -1,0 +1,27 @@
+﻿@page "/"
+
+
+<h1>Hello, @myName</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<h1 style="font-style:@_headingFontStyle">@_headingText</h1>
+
+color is : <label>@color</label>
+<div style="background-color: @color; padding: 50px;"></div>
+<button class="btn btn-dark" @onclick="ToggleBackGround">Toggle background color</button>
+
+@code {
+    private string _headingFontStyle = "italic";
+    private string _headingText = "Rock your pajamas!";
+
+    private string myName { get; set; } = "Jeff";
+
+    private string color = "red";
+    private void ToggleBackGround(MouseEventArgs eventArgs)
+    {
+        color = color == "red" ? "green" : "red";
+    }
+}
